@@ -1,7 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* 02/05/2018
+ * Aisik Pilote
+ * runs program
+ * sets up methods to to show and hide certain guis
  */
 
 package U3A3_convertmepackage;
@@ -21,7 +21,7 @@ public class Run {
     public static void main(String[] args) {
         guiI.setVisible(true);
     }
-    
+    //gui control
     public void guiIOn() {
         guiI.setVisible(true);
     }

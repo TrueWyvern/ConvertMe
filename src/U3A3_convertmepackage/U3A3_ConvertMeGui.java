@@ -1,7 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* 02/05/2018
+ * Aisik Pilote
+ * convertions type
+ * user decides which convertion type to use
  */
 
 package U3A3_convertmepackage;
@@ -13,6 +13,15 @@ package U3A3_convertmepackage;
 public class U3A3_ConvertMeGui extends javax.swing.JFrame {
 
     static int convertionType = 0;
+    //gui control
+    Run guiIOn = new Run(); 
+            //guiIOn.guiIOn();
+    Run guiIOff = new Run();
+            //guiIOff.guiIOff();
+    Run guiFOn = new Run();
+            //guiFOn.guiFOn();
+    Run guiFOff = new Run();
+            //guiFOff.guiFOff();
     
     /**
      * Creates new form U3A3_ConvertMeGui
@@ -153,34 +162,50 @@ public class U3A3_ConvertMeGui extends javax.swing.JFrame {
 
     private void yardsToMetresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yardsToMetresActionPerformed
         convertionType = 7;
+        guiIOff.guiIOff();
+        guiFOn.guiFOn();
     }//GEN-LAST:event_yardsToMetresActionPerformed
 
     private void milesToKilometresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_milesToKilometresActionPerformed
         convertionType = 8;
+        guiIOff.guiIOff();
+        guiFOn.guiFOn();
     }//GEN-LAST:event_milesToKilometresActionPerformed
 
     private void kilometresToMilesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kilometresToMilesActionPerformed
         convertionType = 4;
+        guiIOff.guiIOff();
+        guiFOn.guiFOn();
     }//GEN-LAST:event_kilometresToMilesActionPerformed
 
     private void centimetresToInchesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_centimetresToInchesActionPerformed
         convertionType = 1;
+        guiIOff.guiIOff();
+        guiFOn.guiFOn();
     }//GEN-LAST:event_centimetresToInchesActionPerformed
 
     private void inchesToCentimetresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inchesToCentimetresActionPerformed
         convertionType = 5;
+        guiIOff.guiIOff();
+        guiFOn.guiFOn();
     }//GEN-LAST:event_inchesToCentimetresActionPerformed
 
     private void centimetresToFeetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_centimetresToFeetActionPerformed
         convertionType = 2;
+        guiIOff.guiIOff();
+        guiFOn.guiFOn();
     }//GEN-LAST:event_centimetresToFeetActionPerformed
 
     private void feetToCentimetresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_feetToCentimetresActionPerformed
         convertionType = 6;
+        guiIOff.guiIOff();
+        guiFOn.guiFOn();
     }//GEN-LAST:event_feetToCentimetresActionPerformed
 
     private void metresToYardsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_metresToYardsActionPerformed
         convertionType = 3;  
+        guiIOff.guiIOff();
+        guiFOn.guiFOn();
     }//GEN-LAST:event_metresToYardsActionPerformed
 
     /**

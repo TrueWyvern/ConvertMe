@@ -1,7 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* 02/05/2018
+ * Aisik Pilote
+ * converts data
+ * converts data depending on previous decision on convertion type
  */
 
 package U3A3_convertmepackage;
@@ -11,7 +11,26 @@ package U3A3_convertmepackage;
  * @author aipil3692
  */
 public class ConvertMeGui extends javax.swing.JFrame {
-
+//gui control
+    Run guiIOn = new Run(); 
+            //guiIOn.guiIOn();
+    Run guiIOff = new Run();
+            //guiIOff.guiIOff();
+    Run guiFOn = new Run();
+            //guiFOn.guiFOn();
+    Run guiFOff = new Run();
+            //guiFOff.guiFOff();
+    
+    static double units;
+    static double valueI;
+    static double valueF = 0;
+    public double converter(double valueI, double units) {
+        valueF = valueI*units;
+        return valueF;
+    }
+    
+    
+    
     /**
      * Creates new form ConvertMeGui
      */
@@ -32,38 +51,61 @@ public class ConvertMeGui extends javax.swing.JFrame {
         converte = new javax.swing.JButton();
         enterUnits = new javax.swing.JTextField();
         descConvertion = new javax.swing.JLabel();
+        output = new javax.swing.JLabel();
+        back = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         secondTitle.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         secondTitle.setText("PLEASE INPUT THE UNITS DESIRED TO CONVERT");
 
-        converte.setText("jButton1");
-
-        enterUnits.setText("jTextField1");
+        converte.setText("Convert");
+        converte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                converteActionPerformed(evt);
+            }
+        });
 
         descConvertion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         descConvertion.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+
+        output.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        back.setText("Back");
+        back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(descConvertion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(enterUnits))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(secondTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(152, 152, 152)
+                                .addComponent(converte)))
+                        .addGap(0, 10, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(descConvertion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(enterUnits))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(secondTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(152, 152, 152)
-                        .addComponent(converte)))
-                .addContainerGap(20, Short.MAX_VALUE))
+                        .addComponent(output, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -76,11 +118,76 @@ public class ConvertMeGui extends javax.swing.JFrame {
                 .addComponent(enterUnits, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(converte)
-                .addGap(85, 85, 85))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(output, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(back)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void converteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_converteActionPerformed
+        valueI = Double.parseDouble(enterUnits.getText());
+        System.out.println(valueI);
+        ConvertMeGui convert = new ConvertMeGui();
+    
+        if (U3A3_ConvertMeGui.convertionType==1){
+        //centimetres to inches = value*0.393701
+            units = 0.393701;
+            convert.converter(valueI, units);
+            descConvertion.setText("centimetres to inches");
+        }
+        if (U3A3_ConvertMeGui.convertionType==2){
+        //centimetres to feet = value*0.03280841666667
+            units = 0.03280841666667;
+            convert.converter(valueI, units);
+            descConvertion.setText("centimetres to feet");
+        }
+        if (U3A3_ConvertMeGui.convertionType==3){
+        //metres to yards = value*1.0936138888889999077
+            units = 1.0936138888889999077;
+            convert.converter(valueI, units);
+            descConvertion.setText("metres to yards");
+        }
+        if (U3A3_ConvertMeGui.convertionType==4){
+        //kilomatres to miles = value*0.621371
+            units = 0.621371;
+            convert.converter(valueI, units);
+            descConvertion.setText("kilomatres to miles");
+        }
+        if (U3A3_ConvertMeGui.convertionType==5){
+        //inches to centimtres = value*2.5400013716
+            units = 2.5400013716;
+            convert.converter(valueI, units);
+            descConvertion.setText("inches to centimtres");
+        }
+        if (U3A3_ConvertMeGui.convertionType==6){
+        //feet to centimetres = value*30.480016459203095991
+            units = 30.480016459203095991;
+            convert.converter(valueI, units);
+            descConvertion.setText("feet to centimetres");
+        }
+        if (U3A3_ConvertMeGui.convertionType==7){
+        //yards to metres = value*0.9144
+            units = 0.9144;
+            convert.converter(valueI, units);
+            descConvertion.setText("yards to metres");
+        }
+        if (U3A3_ConvertMeGui.convertionType==8){
+        //miles to kilometres = value*1.60934
+            units = 1.60934;
+            convert.converter(valueI, units);
+            descConvertion.setText("miles to kilometres");
+        }
+        output.setText(Double.toString(valueF));
+    }//GEN-LAST:event_converteActionPerformed
+
+    private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
+        guiIOn.guiIOn();
+        guiFOff.guiFOff();
+    }//GEN-LAST:event_backActionPerformed
 
     /**
      * @param args the command line arguments
@@ -118,9 +225,11 @@ public class ConvertMeGui extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton back;
     private javax.swing.JButton converte;
     private javax.swing.JLabel descConvertion;
     private javax.swing.JTextField enterUnits;
+    private javax.swing.JLabel output;
     private javax.swing.JLabel secondTitle;
     // End of variables declaration//GEN-END:variables
 }
